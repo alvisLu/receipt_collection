@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  mongo:
+    container_name: receipt_mongo
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27019:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: receipt
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongodb-data:/data/db
+
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: receipt_server
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    volumes:
+      - ./src:/app/src
+    links:
+      - mongo
+    networks:
+      - default
+
+volumes:
+  receipt-mongodb-data:
+networks:
+  default:
+
