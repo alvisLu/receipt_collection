@@ -6,13 +6,14 @@ import {
   updateTagById,
   deleteTagById,
 } from '../controllers/tag';
+import authMiddleware from '../middleware/authMiddleware';
 
 const router = express.Router();
 
-router.get('/', getTags);
-router.get('/:id', getTagById);
-router.post('/', createTag);
-router.put('/:id', updateTagById);
-router.delete('/:id', deleteTagById);
+router.get('/', authMiddleware, getTags);
+router.get('/:id', authMiddleware, getTagById);
+router.post('/', authMiddleware, createTag);
+router.put('/:id', authMiddleware, updateTagById);
+router.delete('/:id', authMiddleware, deleteTagById);
 
 export default router;
