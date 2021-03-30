@@ -1,5 +1,5 @@
 import express from 'express';
-// import authMiddleware from '../middleware/authMiddleware';
+import authMiddleware from '../middleware/authMiddleware';
 import {
   searchReceipts,
   createReceipt,
@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
-router.get('/search', searchReceipts);
-router.post('/', createReceipt);
-router.put('/:id', updateReceipt);
+router.get('/search', authMiddleware, searchReceipts);
+router.post('/', authMiddleware, createReceipt);
+router.put('/:id', authMiddleware, updateReceipt);
 
 export default router;
