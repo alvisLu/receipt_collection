@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import TagModel, { ITag } from '../models/Tag';
 import TagNotFoundException from '../exceptions/TagNotFoundException';
 import IdIsNotValidException from '../exceptions/IdIsNotValidException';
+import TagExistedException from '../exceptions/TagExistedException';
 
 export const getTags = async (
   req: Request,
@@ -10,7 +11,7 @@ export const getTags = async (
   next: NextFunction
 ) => {
   try {
-    const tags = await TagModel.find();
+    const tags: ITag[] = await TagModel.find();
     res.send(tags);
   } catch (e) {
     next(e);
@@ -35,11 +36,15 @@ export const getTagById = async (
   }
 };
 
-export const createTag = async (req: Request, res: Response) => {
+export const createTag = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const tag: ITag = req.body;
   const isExist = await TagModel.exists({ name: tag.name });
   if (isExist) {
-    res.send('the tag is is exists.');
+    next(new TagExistedException(tag.name));
   } else {
     const newTag = new TagModel(tag);
     const saveTag = await newTag.save();
