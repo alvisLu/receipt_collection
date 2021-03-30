@@ -26,13 +26,13 @@ export const getTagById = async (
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     next(new IdIsNotValidException(id));
-  }
-
-  const tag = await TagModel.findById(id);
-  if (tag) {
-    res.send(tag);
   } else {
-    next(new TagNotFoundException(id));
+    const tag: ITag | null = await TagModel.findById(id);
+    if (tag) {
+      res.send(tag);
+    } else {
+      next(new TagNotFoundException(id));
+    }
   }
 };
 
@@ -57,17 +57,17 @@ export const updateTagById = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { id } = req.params;
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    next(new IdIsNotValidException(id));
-  }
-
-  const newTag: ITag = req.body;
-  const updateTag = await TagModel.findByIdAndUpdate(id, newTag);
-  if (updateTag) {
-    res.send(updateTag);
+  const _id = req.params.id;
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    next(new IdIsNotValidException(_id));
   } else {
-    next(new TagNotFoundException(id));
+    const newTag: ITag = req.body;
+    const updateTag = await TagModel.updateOne({ _id }, newTag);
+    if (updateTag.n < 1) {
+      next(new TagNotFoundException(_id));
+    } else {
+      res.send('ok');
+    }
   }
 };
 
@@ -79,12 +79,12 @@ export const deleteTagById = async (
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
     next(new IdIsNotValidException(id));
-  }
-
-  const tag = await TagModel.findByIdAndDelete(id);
-  if (tag) {
-    res.send(tag);
   } else {
-    next(new TagNotFoundException(id));
+    const tag = await TagModel.findByIdAndDelete(id);
+    if (tag) {
+      res.send(tag);
+    } else {
+      next(new TagNotFoundException(id));
+    }
   }
 };
