@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 
 export interface IReceipt {
-  date: string;
+  date: Date;
   serialNo: string;
   tag: string;
 }
 
 const receiptSchema = new mongoose.Schema(
   {
-    date: String,
+    date: Date,
     serialNo: String,
     tag: {
       ref: 'Tag',

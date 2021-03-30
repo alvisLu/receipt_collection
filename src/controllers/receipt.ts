@@ -49,7 +49,10 @@ export const createReceipt = async (
     if (!isTagExist) {
       next(new TagNotFoundException(receipt.tag));
     } else {
-      const newReceipt = new ReceiptModel(receipt);
+      const newReceipt = new ReceiptModel({
+        ...receipt,
+        date: new Date(receipt.date).getTime(),
+      });
       const saveReceipt = await newReceipt.save();
       res.send(saveReceipt);
     }
@@ -62,7 +65,7 @@ export const updateReceipt = async (
   next: NextFunction
 ) => {
   const _id = req.params.id;
-  const {tag} = req.body;
+  const { tag } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     next(new IdIsNotValidException(_id));
