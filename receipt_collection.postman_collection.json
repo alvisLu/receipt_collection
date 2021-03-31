@@ -1,0 +1,246 @@
+{
+  "info": {
+    "_postman_id": "63d462c4-3203-45c0-b625-e519a85b5f12",
+    "name": "receipt_collection",
+    "description": "The receipt_collection APIs Documentation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Tag",
+      "item": [
+        {
+          "name": "Get tag list",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{receiptHost}}/tags",
+              "host": ["{{receiptHost}}"],
+              "path": ["tags"]
+            },
+            "description": "Get tag list\n\n* Response:\n  * Tag list."
+          },
+          "response": []
+        },
+        {
+          "name": "Get tag by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{receiptHost}}/tags/:id",
+              "host": ["{{receiptHost}}"],
+              "path": ["tags", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "6062b3788c92460595a19b4a"
+                }
+              ]
+            },
+            "description": "Get tag by id\n\n* request params:\n  * id: {String} id of the tag"
+          },
+          "response": []
+        },
+        {
+          "name": "Create tag",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"tag12\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{receiptHost}}/tags",
+              "host": ["{{receiptHost}}"],
+              "path": ["tags"]
+            },
+            "description": "Create tag\n\n* request body:\n  * name {String} new tag"
+          },
+          "response": []
+        },
+        {
+          "name": "Update tag by id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"tag311\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{receiptHost}}/tags/:id",
+              "host": ["{{receiptHost}}"],
+              "path": ["tags", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "6062b2674c40bd050952ba5d"
+                }
+              ]
+            },
+            "description": "Update tag by Id\n\n* request params:\n  * id {string} id of the tag\n* request body:\n  * name {string} new name of the tag"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete tag by id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{receiptHost}}/tags/:id",
+              "host": ["{{receiptHost}}"],
+              "path": ["tags", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "60631a21a8a6a90772984c2e"
+                }
+              ]
+            },
+            "description": "Delete tag by id\n\n* request params:\n  * id: {String} id of the tag\n\n* response:\n  * the delete tag"
+          },
+          "response": []
+        }
+      ],
+      "description": "Tag APIs"
+    },
+    {
+      "name": "Receipt",
+      "item": [
+        {
+          "name": "Search receipts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{receiptHost}}/receipts/search/?tag=",
+              "host": ["{{receiptHost}}"],
+              "path": ["receipts", "search", ""],
+              "query": [
+                {
+                  "key": "tag",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Search receipt\n\n* request query:\n  * tag {string} name of the tag"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload receipts",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "receiptFile",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{receiptHost}}/receipts/upload",
+              "host": ["{{receiptHost}}"],
+              "path": ["receipts", "upload"]
+            },
+            "description": "Upload receipts\n\n* request body:\n  * receiptFile {.txt} receipt file one or more"
+          },
+          "response": []
+        },
+        {
+          "name": "Update receipt by id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tag\": \"6062b382dd1bd405a336885b\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{receiptHost}}/receipts/:id",
+              "host": ["{{receiptHost}}"],
+              "path": ["receipts", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Receipt APIs"
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin\",\n    \"password\": \"admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{receiptHost}}/login",
+              "host": ["{{receiptHost}}"],
+              "path": ["login"]
+            },
+            "description": "Login\n\n* request body:\n  * email {string} email of user\n  * password {string} password of user"
+          },
+          "response": []
+        },
+        {
+          "name": "Lotout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{receiptHost}}/logout",
+              "host": ["{{receiptHost}}"],
+              "path": ["logout"]
+            },
+            "description": "Logout"
+          },
+          "response": []
+        }
+      ],
+      "description": "Authentication APIs"
+    }
+  ]
+}
