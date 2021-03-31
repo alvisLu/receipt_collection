@@ -40,5 +40,5 @@ export const login = async (
 
 export const logout = async (req: Request, res: Response) => {
   res.clearCookie('authorization', { path: '/' });
-  res.status(204);
+  res.status(204).send();
 };
