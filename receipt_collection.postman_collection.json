@@ -161,7 +161,7 @@
               "host": ["{{receiptHost}}"],
               "path": ["receipts", "upload"]
             },
-            "description": "Upload receipts\n\n* request body:\n  * receiptFile {.txt} receipt file one or more"
+            "description": "Upload receipts\n\n* request body:\n  * receiptFile {.txt} receipt files less than five items"
           },
           "response": []
         },
