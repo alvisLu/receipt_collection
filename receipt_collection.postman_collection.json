@@ -221,7 +221,7 @@
               "host": ["{{receiptHost}}"],
               "path": ["login"]
             },
-            "description": "Login\n\n* request body:\n  * email {string} email of user\n  * password {string} password of user"
+            "description": "Login\n\n* request body:\n  * email {string} email of user\n  * password {string} password of user\n\nNote: \nThere is only one user.\nemail: admin\npassword: admin"
           },
           "response": []
         },
