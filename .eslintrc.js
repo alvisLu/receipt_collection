@@ -22,6 +22,8 @@ module.exports = {
     },
   },
   rules: {
+    'no-await-in-loop': 'off',
+    'no-restricted-syntax': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
     'import/extensions': 'off',

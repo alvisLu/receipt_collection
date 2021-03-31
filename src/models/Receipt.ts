@@ -3,13 +3,15 @@ import mongoose from 'mongoose';
 export interface IReceipt {
   date: Date;
   serialNo: string;
-  tag: string;
+  amounts: string;
+  tag?: string;
 }
 
 const receiptSchema = new mongoose.Schema(
   {
     date: Date,
     serialNo: String,
+    amounts: String,
     tag: {
       ref: 'Tag',
       type: mongoose.Schema.Types.ObjectId,
