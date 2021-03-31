@@ -7,7 +7,9 @@
 - MongoDB
 - Docker
 
-## How to run
+## Run the server
+
+### script command
 
 **Start**
 
@@ -35,7 +37,9 @@ docker-compose up -d
 docker-compose down
 ```
 
-### Run with script
+### Run with script (recommend)
+
+Recommend run the script to start the server.
 
 ```
 bash ./scripts/restart-docker-compose.sh
@@ -43,7 +47,7 @@ bash ./scripts/restart-docker-compose.sh
 
 ## Demo
 
-The demo server ip: [13.115.54.116:3000](13.115.54.116:3000)
+The demo server ip: **13.115.54.116:3000**
 
 receipt sample: [./sampleFile](./sampleFile)
 
