@@ -94,13 +94,13 @@ Refer to [receipt_collection.postman_collection.json](./receipt_collection.postm
                    |     7622210410474 Cadbury Dairy Milk 165g
                    |     2 x 3.80                                    7.60
 (empty Line)       +---
-payment, subTotal ----> CASH          SubTotal:                    42.70
-    tender,change ----> TENDER 50.00   CHANGE 7.30
-              qty ----> ITEMS(2)  QTY(5)
-                        ------------------------
-            total ----> Total :            42.70
-                        ------------------------
-   inclusive, gst ----> INCLUSIVE 7% GST 2.79
-                        --- Thank You & Have A Nice Day ---
+payment, subTotal -----> CASH          SubTotal:                    42.70
+    tender,change -----> TENDER 50.00   CHANGE 7.30
+              qty -----> ITEMS(2)  QTY(5)
+                         ------------------------
+            total -----> Total :            42.70
+                         ------------------------
+   inclusive, gst -----> INCLUSIVE 7% GST 2.79
+                         --- Thank You & Have A Nice Day ---
 
 ```
