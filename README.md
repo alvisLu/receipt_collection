@@ -88,12 +88,12 @@ Refer to [receipt_collection.postman_collection.json](./receipt_collection.postm
 
              date -----> Date:14.04.2020  Time:19:51:46
          serialNo -----> Receipt ID:92737
-(+---+ Line)       +---  +----------------------------------------------+
+(+---+ Line)       +---> +----------------------------------------------+
                    |     88823027 Viceroy Menthol Super
           details -+     3 x 11.70                                  35.10
                    |     7622210410474 Cadbury Dairy Milk 165g
                    |     2 x 3.80                                    7.60
-(empty Line)       +---
+(empty Line)       +--->
 payment, subTotal -----> CASH          SubTotal:                    42.70
     tender,change -----> TENDER 50.00   CHANGE 7.30
               qty -----> ITEMS(2)  QTY(5)
