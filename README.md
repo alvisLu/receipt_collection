@@ -59,6 +59,8 @@ Refer to [receipt_collection.postman_collection.json](./receipt_collection.postm
 
 ### E-R Model Diagram
 
+E-R Model Diagram tool: [draw.io](https://app.diagrams.net/)
+
 ![](./erd-diagram.png)
 
 ### Receipt schema columns explanation
