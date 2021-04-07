@@ -59,7 +59,7 @@ Refer to [receipt_collection.postman_collection.json](./receipt_collection.postm
 
 ### E-R Model Diagram
 
-![](./receipt_and_tag_relation.png)
+![](./erd-diagram.png)
 
 ### Receipt schema columns explanation
 
