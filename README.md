@@ -45,11 +45,9 @@ Recommend run the script to start the server.
 bash ./scripts/restart-docker-compose.sh
 ```
 
-## Demo
+Visit [http://localhost:3000](http://localhost:3000) to test it.
 
-The demo server ip: [13.115.54.116:3000](http://13.115.54.116:3000)
-
-receipt sample: [./sampleFile](./sampleFile)
+receipts sample: [./sampleFile](./sampleFile)
 
 ## API Document
 
